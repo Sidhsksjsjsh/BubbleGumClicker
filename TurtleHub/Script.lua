@@ -183,10 +183,30 @@ Icon = "rbxassetid://4483345998",
 PremiumOnly = false
 })
 
+T3:AddDropdown({
+Name = "Select Island",
+Default = "?",
+Options = {"• [ Atlantis World ] •", "Coral Island", "Deep Ocean", "Kraken's Krest", "Reaper's Hideout", "Shipwreck Cove", "The Lost City", "• [ Spawn World ] •", "Banana Bandana on Nana Egg", "Common Egg", "Frosted Egg", "Galaxy Egg", "Lantern Egg", "Magma Egg", "Nightmare Egg", "Safe Egg", "Spotted Egg", "Void Egg", "• [ Easter World ] •", "nil"},
+Callback = function(Value)
+  SyncGlobeWorldIsland = Value
+end    
+})
+
+T3:AddButton({
+Name = "Teleport",
+Callback = function()
+      local Island = SyncServerSystem.MAP.Islands:FindFirstChild(SyncGlobeWorldIsland)
+            if Island then
+                local Islandos = Island.Position
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(IslandPos)
+            end
+  end    
+})
+
 T2:AddDropdown({
 Name = "Select egg",
 Default = "?",
-Options = {"• [ Atlantis World ] •", "Atlantis Egg", "Coral Egg", "Goldfish Egg", "Pineapple Egg", "Snail Egg", "• [ Spawn World ] •", "Banana Bandana on Nana Egg", "Common Egg", "Frosted Egg", "Galaxy Egg", "Lantern Egg", "Magma Egg", "Nightmare Egg", "Safe Egg", "Spotted Egg", "Void Egg", "• [ Easter Island ] •", "Bunny Egg", "Cataclysmic Egg", "Chocolate Egg", "Ducky Egg", "• [ Season Egg ] •", "Season 3 Egg"},
+Options = {"• [ Atlantis Egg ] •", "Atlantis Egg", "Coral Egg", "Goldfish Egg", "Pineapple Egg", "Snail Egg", "• [ Spawn Egg ] •", "Sky Island", "Lucky Landing", "The Void", "Fairy World", "XP Island", "• [ Easter Egg ] •", "Bunny Egg", "Cataclysmic Egg", "Chocolate Egg", "Ducky Egg", "• [ Season Egg ] •", "Season 3 Egg"},
 Callback = function(Value)
   SyncGlobeWorldEgg = Value
 end    
